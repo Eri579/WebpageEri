@@ -3,318 +3,270 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>個人簡介 | Eri579 (艾瑞克)</title>
+    <title>工程專業簡介 | Eri579 (艾瑞克)</title>
     <style>
-        /* --- 核心樣式與變數 Define Core Styles & Variables --- */
+        /* --- 核心樣式與變數：高機械專業風 --- */
         :root {
-            /* 和風科技色彩系統 */
-            --bg-color: #0a1120; /* 深藍基調 (科技感/寧靜) */
-            --panel-bg: rgba(20, 30, 48, 0.85); /* 霧面面板 (毛玻璃效果) */
-            --text-primary: #e0e6ed; /* 淺灰白文字 */
-            --text-secondary: #a0aec0; /* 次要文字 */
-            --accent-gold: #c9a063; /* 金色 (傳統/專業) */
-            --accent-pink: #ffb7c5; /* 櫻花粉 (和風點綴) */
-            --accent-cyan: #40e0d0; /* 電子青 (科技點綴) */
-            --border-color: rgba(201, 160, 99, 0.3);
-            
-            /* 字體 */
-            --font-main: 'Noto Sans TC', sans-serif;
-            --font-quote: 'Noto Serif TC', serif; /* 人生觀使用襯線體增加莊重感 */
+            --bg-dark: #0f1215;         /* 深碳黑 */
+            --panel-bg: #1a1e23;        /* 鐵灰面板 */
+            --accent-blue: #007bff;      /* 工程藍 (液壓/科技) */
+            --accent-silver: #c0c0c0;    /* 鈦金屬銀 */
+            --accent-orange: #f39c12;    /* 警告橘 (工業標示感) */
+            --text-main: #e2e8f0;
+            --text-dim: #94a3b8;
+            --border-ui: #2d3748;
+            --font-tech: 'Roboto Mono', 'Noto Sans TC', monospace;
         }
 
-        /* 引入 Google Fonts */
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&family=Noto+Serif+TC:wght@600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap');
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: var(--font-main);
-            background-color: var(--bg-color);
-            color: var(--text-primary);
-            line-height: 1.8;
-            overflow-x: hidden;
-            /* 背景加上淡淡的青海波紋紋理 (和風) */
+            font-family: var(--font-tech);
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            /* 背景背景：工程網格線 */
             background-image: 
-                radial-gradient(circle at 10% 20%, rgba(64, 224, 208, 0.05) 0%, transparent 20%),
-                radial-gradient(circle at 90% 80%, rgba(255, 183, 197, 0.05) 0%, transparent 20%),
-                url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDMwIDMwIj48cGF0aCBkPSJNMTAgMEM1LjI3NyAwIDEgMS4yNjYgMSAzLjVDMSAxLjI2NiA1LjI3NyAwIDEwIDBDMTQuNzIzIDAgMTkgMS4yNjYgMTkgMy41QzE5IDEuMjY2IDE0LjcyMyAwIDEwIDBaTTEwIDE5QzUuMjc3IDE5IDEgMjAuMjY2IDEgMjIuNUMxIDIwLjI2NiA1LjI3NyAxOSAxMCAxOUMxNC43MjMgMTkgMTkgMjAuMjY2IDE5IDIyLjVDMTkgMjAuMjY2IDE0LjcyMyAxOSAxMCAxOVpNMTAgMjUuNUM1LjI3NyAyNS41IDEgMjYuNzY2IDEgMjkuNUMxIDI2Ljc2NiA1LjI3NyAyNS41IDEwIDI1LjVDMTQuNzIzIDI1LjUgMTkgMjYuNzY2IDE5IDI5LjVDMTkgMjYuNzY2IDE0LjcyMyAyNS41IDEwIDI1LjVaIiBmaWxsPSIjYzlhMDYzIiBmaWxsLW9wYWNpdHk9IjAuMDUiLz48L3N2Zz4=');
+                linear-gradient(var(--border-ui) 1px, transparent 1px),
+                linear-gradient(90deg, var(--border-ui) 1px, transparent 1px);
+            background-size: 40px 40px;
         }
 
-        /* --- 頁面佈局 Layout --- */
         .container {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 50px 20px;
         }
 
-        /* --- 頁首 Header --- */
+        /* --- 頁首：工業銘牌風格 --- */
         header {
-            text-align: center;
-            margin-bottom: 60px;
-            padding-bottom: 20px;
-            border-bottom: 2px solid var(--border-color);
+            border-left: 8px solid var(--accent-blue);
+            padding-left: 25px;
+            margin-bottom: 50px;
             position: relative;
-        }
-
-        header::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 2px;
-            background-color: var(--accent-pink);
         }
 
         .name-ch {
-            font-size: 2.5em;
+            font-size: 3em;
             font-weight: 700;
-            color: var(--text-primary);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        .job-title {
+            font-size: 1.1em;
+            color: var(--accent-blue);
+            margin-top: 5px;
             letter-spacing: 2px;
         }
 
-        .name-en {
-            font-size: 1.2em;
-            color: var(--text-secondary);
-            font-weight: 300;
-            margin-top: -5px;
-        }
-
-        /* --- 人生觀 Quote Section --- */
-        .quote-section {
-            background-color: rgba(201, 160, 99, 0.05);
-            border-left: 4px solid var(--accent-gold);
-            padding: 30px;
-            margin-bottom: 50px;
-            border-radius: 4px;
-            text-align: center;
-        }
-
-        .quote-text {
-            font-family: var(--font-quote);
-            font-size: 1.5em;
-            color: var(--accent-gold);
-            font-weight: 600;
-            letter-spacing: 1px;
-        }
-
-        /* --- 主要內容 Grid --- */
-        .main-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-        }
-
-        /* --- 卡片樣式 Card Style --- */
-        .card {
-            background-color: var(--panel-bg);
-            backdrop-filter: blur(10px); /* 毛玻璃效果 */
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 30px;
-            transition: all 0.3s ease;
+        /* --- 核心座右銘 --- */
+        .quote-box {
+            background: #000;
+            border: 1px solid var(--accent-orange);
+            padding: 15px;
+            margin-bottom: 40px;
+            display: inline-block;
             position: relative;
-            overflow: hidden;
+        }
+        .quote-box::after {
+            content: "SPECIFICATION";
+            position: absolute;
+            top: -10px; right: 10px;
+            background: var(--accent-orange);
+            color: #000;
+            font-size: 10px; font-weight: bold; padding: 0 5px;
+        }
+
+        /* --- 網格佈局 --- */
+        .grid-layout {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+        }
+
+        /* --- 專業卡片設計 --- */
+        .card {
+            background: var(--panel-bg);
+            border: 1px solid var(--border-ui);
+            padding: 25px;
+            position: relative;
+            transition: 0.3s;
         }
 
         .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(64, 224, 208, 0.1);
-            border-color: var(--accent-cyan);
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 15px rgba(0, 123, 255, 0.2);
         }
 
-        /* 卡片裝飾角 */
-        .card::before {
-            content: '';
+        .card-tag {
+            font-size: 10px;
+            color: var(--accent-dim);
             position: absolute;
-            top: 10px;
-            right: 10px;
-            width: 15px;
-            height: 15px;
-            border-top: 2px solid var(--border-color);
-            border-right: 2px solid var(--border-color);
-            transition: border-color 0.3s ease;
-        }
-
-        .card:hover::before {
-            border-color: var(--accent-cyan);
-        }
-
-        .card-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid rgba(160, 174, 192, 0.2);
-        }
-
-        .card-icon {
-            font-size: 1.5em;
-            color: var(--accent-cyan);
-            margin-right: 15px;
+            top: 10px; right: 15px;
         }
 
         .card-title {
-            font-size: 1.3em;
-            font-weight: 700;
-            color: var(--accent-gold);
-            letter-spacing: 1px;
+            font-size: 1.25em;
+            color: var(--accent-silver);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            border-bottom: 2px solid var(--accent-blue);
+            padding-bottom: 10px;
         }
 
-        /* 技能列表 */
-        .skill-list {
-            list-style: none;
-        }
+        .card-title i { margin-right: 10px; color: var(--accent-blue); }
 
+        .skill-list { list-style: none; }
         .skill-list li {
-            position: relative;
-            padding-left: 20px;
-            margin-bottom: 10px;
-            color: var(--text-primary);
+            margin-bottom: 12px;
+            font-size: 0.95em;
+            display: flex;
+            align-items: flex-start;
         }
 
         .skill-list li::before {
-            content: '▫'; /* 和風方塊符號 */
-            position: absolute;
-            left: 0;
-            color: var(--accent-pink);
+            content: ">>";
+            color: var(--accent-orange);
+            margin-right: 10px;
+            font-size: 0.8em;
+            font-weight: bold;
         }
 
-        /* 特殊技術關鍵字高亮 */
-        .tech-tag {
-            color: var(--accent-cyan);
-            font-weight: 700;
-        }
+        .highlight { color: var(--accent-blue); font-weight: bold; }
 
-        /* --- 期望職位 Wish Section --- */
-        .wish-section {
-            grid-column: 1 / -1; /* 跨越所有行 */
+        /* --- 期望職位區域 --- */
+        .target-career {
+            grid-column: 1 / -1;
+            background: rgba(0, 123, 255, 0.05);
+            border: 1px dashed var(--accent-blue);
+            padding: 30px;
             text-align: center;
-            margin-top: 40px;
-            background: linear-gradient(90deg, transparent, rgba(201, 160, 99, 0.1), transparent);
-            padding: 20px;
-            border-radius: 8px;
+            margin-top: 20px;
         }
 
-        .wish-title {
-            font-size: 1.3em;
-            color: var(--accent-gold);
-            margin-bottom: 15px;
+        .target-title {
+            font-size: 1.2em;
+            color: var(--accent-silver);
+            margin-bottom: 20px;
         }
 
-        .wish-tags {
+        .badge-container {
             display: flex;
             justify-content: center;
             gap: 15px;
             flex-wrap: wrap;
         }
 
-        .wish-tag {
-            background-color: rgba(255, 183, 197, 0.1);
-            color: var(--accent-pink);
-            padding: 8px 20px;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 183, 197, 0.3);
-            font-size: 0.95em;
+        .badge {
+            border: 1px solid var(--accent-silver);
+            padding: 5px 20px;
+            border-radius: 0px; /* 工業風偏向直角 */
+            font-size: 0.9em;
+            background: transparent;
+            color: var(--accent-silver);
         }
 
-        /* --- 頁尾 Footer --- */
         footer {
+            margin-top: 60px;
             text-align: center;
-            margin-top: 80px;
-            padding-top: 20px;
-            color: var(--text-secondary);
-            font-size: 0.85em;
-            border-top: 1px solid rgba(160, 174, 192, 0.1);
+            color: var(--text-dim);
+            font-size: 0.8em;
+            border-top: 1px solid var(--border-ui);
+            padding-top: 30px;
         }
 
-        /* RWD 響應式微調 */
-        @media (max-width: 600px) {
-            .name-ch { font-size: 2em; }
-            .quote-text { font-size: 1.2em; }
-            .main-content { grid-template-columns: 1fr; }
+        /* Responsive */
+        @media (max-width: 768px) {
+            .name-ch { font-size: 2.2em; }
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        
         <header>
-            <div class="name-ch">Eri579 (艾瑞克)</div>
-            <div class="name-en">個人資訊 - 優雅與專業的交匯</div>
+            <div class="name-ch">Eri579 / 艾瑞克</div>
+            <div class="job-title">跨領域機械工程專家 | 多語技術顧問</div>
         </header>
 
-        <div class="quote-section">
-            <p class="quote-text">非淡泊無以明志，非寧靜無以致遠。</p>
+        <div class="quote-box">
+            <p>非淡泊無以明志，非寧靜無以致遠。 — 專注於結構與邏輯的精確度。</p>
         </div>
 
-        <div class="main-content">
+        <div class="grid-layout">
 
             <div class="card">
-                <div class="card-header">
-                    <div class="card-icon">文</div>
-                    <h2 class="card-title">專業翻譯 (日文)</h2>
-                </div>
+                <span class="card-tag">CAD/CAM</span>
+                <h2 class="card-title">3D 機械設計與建模</h2>
                 <ul class="skill-list">
-                    <li>日文工具機相關專業翻譯</li>
-                    <li>機械技術文件翻譯</li>
+                    <li><span class="highlight">CATIA V5 / SolidWorks</span> 熟練應用</li>
+                    <li>零件設計 (Part Design) 與 大型組合件 (Assembly)</li>
+                    <li><span class="highlight">造型曲面</span> 與 逆向工程 (Reverse Engineering)</li>
+                    <li>工業級 3D 列印設定 (<span class="highlight">FDM / SLA</span> 製程優化)</li>
                 </ul>
             </div>
 
             <div class="card">
-                <div class="card-header">
-                    <div class="card-icon">⚙</div>
-                    <h2 class="card-title">自動化控制編程</h2>
-                </div>
+                <span class="card-tag">AUTOMATION</span>
+                <h2 class="card-title">自動化控制編程</h2>
                 <ul class="skill-list">
-                    <li><span class="tech-tag">六軸機械手</span> 控制編寫</li>
-                    <li><span class="tech-tag">PLC 控制器</span> 控制流程開發</li>
-                    <li><span class="tech-tag">HMI 人機介面</span> 開發</li>
-                    <li><span class="tech-tag">MCU 微控制器</span> 編寫</li>
+                    <li><span class="highlight">六軸機械手</span> 運動路徑控制與編寫</li>
+                    <li><span class="highlight">PLC / MCU</span> 控制流程開發與硬體整合</li>
+                    <li>HMI 人機介面 UI/UX 邏輯設計</li>
                 </ul>
             </div>
 
             <div class="card">
-                <div class="card-header">
-                    <div class="card-icon">📊</div>
-                    <h2 class="card-title">資料科學與視覺化</h2>
-                </div>
+                <span class="card-tag">DATA ANALYSIS</span>
+                <h2 class="card-title">資料科學與視覺化</h2>
                 <ul class="skill-list">
-                    <li><span class="tech-tag">SQL SERVER</span> 基本架構</li>
-                    <li>搭配 <span class="tech-tag">PYTHON</span> 資料清洗</li>
-                    <li><span class="tech-tag">POWER BI</span> 視覺化介面設計</li>
+                    <li>SQL Server 資料庫架構設計</li>
+                    <li><span class="highlight">Python</span> 數據自動化清洗與處理</li>
+                    <li>Power BI 商業智能視覺化報表</li>
                 </ul>
             </div>
 
             <div class="card">
-                <div class="card-header">
-                    <div class="card-icon">🌐</div>
-                    <h2 class="card-title">電腦網管架構</h2>
-                </div>
+                <span class="card-tag">LANGUAGE</span>
+                <h2 class="card-title">專業日文翻譯</h2>
                 <ul class="skill-list">
-                    <li>電腦網管基本架構維護與設計</li>
+                    <li><span class="highlight">工具機與機械</span> 專業術語對譯</li>
+                    <li>技術手冊、規格書及專利文件翻譯</li>
+                    <li>台日技術交流現場口譯經驗</li>
                 </ul>
             </div>
 
-            <div class="wish-section card">
-                <h3 class="wish-title">期望職位</h3>
-                <div class="wish-tags">
-                    <span class="wish-tag">日文業務人員</span>
-                    <span class="wish-tag">業務工程師</span>
-                    <span class="wish-tag">資料處理人員</span>
+            <div class="card">
+                <span class="card-tag">NETWORK</span>
+                <h2 class="card-title">資訊網管架構</h2>
+                <ul class="skill-list">
+                    <li>企業級區域網路設計與維護</li>
+                    <li>系統環境搭建與基礎資安管理</li>
+                </ul>
+            </div>
+
+            <div class="target-career">
+                <h3 class="target-title">Target Career / 期望職位</h3>
+                <div class="badge-container">
+                    <span class="badge">日文業務工程師 (Sales Engineer)</span>
+                    <span class="badge">機械設計開發工程師</span>
+                    <span class="badge">自動化系統整合顧問</span>
+                    <span class="badge">技術資料分析師</span>
                 </div>
             </div>
 
-        </div> <footer>
-            <p>&copy; 2026 Eri克. All rights reserved.</p>
-            <p>結合和風寧靜與科技創新</p>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 Eri579. ENGINEERING PERSONAL DATA SHEET.</p>
+            <p>SYSTEM STATUS: <span style="color: #27ae60;">OPERATIONAL</span></p>
         </footer>
+    </div>
 
-    </div> </body>
+</body>
 </html>
