@@ -1,256 +1,640 @@
+HTML
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>工程專業簡介 | Eri579 (艾瑞克)</title>
+    <title>Eric | 語言 x 自動化控制 x AI數據分析 </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
-        /* --- 核心樣式與變數：素雅簡約風 --- */
         :root {
-            --bg-light: #f8fafc;          /* 淺米灰背景 */
-            --paper-bg: #ffffff;         /* 純白紙張感 */
-            --text-main: #334155;        /* 深灰藍文字 */
-            --text-muted: #64748b;       /* 柔和灰文字 */
-            --accent-blue: #475569;      /* 低飽和石墨藍 (取代工程藍) */
-            --accent-gold: #b2a496;      /* 灰金屬色 (取代警告橘) */
-            --border-soft: #e2e8f0;      /* 極淺邊框 */
-            --font-clean: 'Inter', 'Noto Sans TC', -apple-system, sans-serif;
+            --primary: #1e3a8a;
+            --primary-light: #3b82f6;
+            --accent: #0ea5e9;
+            --dark: #0f172a;
+            --gray-dark: #334155;
+            --gray-light: #f8fafc;
+            --white: #ffffff;
+            --shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+            --transition: all 0.3s ease;
         }
 
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;500;700&display=swap');
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
         body {
-            font-family: var(--font-clean);
-            background-color: var(--bg-light);
-            color: var(--text-main);
-            line-height: 1.7;
-            -webkit-font-smoothing: antialiased;
+            font-family: 'Noto Sans TC', 'Roboto', sans-serif;
+            color: var(--gray-dark);
+            background-color: #f1f5f9;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        header {
+            background-color: var(--dark);
+            color: var(--white);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: var(--white);
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        .nav-link {
+            color: #cbd5e1;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-link:hover {
+            color: var(--accent);
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+            color: var(--white);
+            padding: 8rem 2rem 5rem;
+            text-align: center;
+        }
+
+        .hero-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-title {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .hero-tags {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-bottom: 2rem;
+        }
+
+        .tag {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .hero-contact {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.5rem 1.2rem;
+            border-radius: 8px;
+            font-size: 0.95rem;
         }
 
         .container {
-            max-width: 960px;
-            margin: 0 auto;
-            padding: 80px 40px;
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
         }
 
-        /* --- 頁首：低調極簡 --- */
-        header {
-            text-align: left;
-            margin-bottom: 60px;
-            border-bottom: 1px solid var(--border-soft);
-            padding-bottom: 30px;
-        }
-
-        .name-ch {
-            font-size: 2.2em;
-            font-weight: 500;
-            letter-spacing: 2px;
-            color: #1e293b;
-        }
-
-        .job-title {
-            font-size: 1em;
-            color: var(--text-muted);
-            margin-top: 8px;
-            letter-spacing: 1px;
-            font-weight: 300;
-        }
-
-        /* --- 座右銘：文藝素雅 --- */
-        .quote-box {
-            margin-bottom: 60px;
-            padding-left: 20px;
-            border-left: 2px solid var(--accent-gold);
-        }
-        .quote-box p {
-            font-size: 0.95em;
-            color: var(--text-muted);
-            font-style: italic;
-            letter-spacing: 1px;
-        }
-
-        /* --- 網格佈局 --- */
-        .grid-layout {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
-        }
-
-        /* --- 卡片設計：無框感 --- */
-        .card {
-            background: transparent;
+        .section-title {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
             position: relative;
-            transition: transform 0.3s ease;
-        }
-
-        .card-tag {
-            font-size: 11px;
-            color: var(--accent-gold);
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            font-weight: 700;
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        .card-title {
-            font-size: 1.2em;
-            color: #1e293b;
-            margin-bottom: 15px;
-            font-weight: 500;
-        }
-
-        .skill-list { list-style: none; }
-        .skill-list li {
-            margin-bottom: 10px;
-            font-size: 0.9em;
-            color: var(--text-muted);
+            padding-bottom: 0.5rem;
             display: flex;
             align-items: center;
+            gap: 0.6rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent);
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-card {
+            background: var(--gray-light);
+            border-top: 4px solid var(--primary-light);
+            border-radius: 8px;
+            padding: 1.5rem;
+        }
+
+        .skill-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            margin-bottom: 0.6rem;
+            position: relative;
+            padding-left: 1.2rem;
+            font-size: 0.95rem;
         }
 
         .skill-list li::before {
             content: "•";
-            color: var(--accent-gold);
-            margin-right: 12px;
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 1.2rem;
+            position: absolute;
+            left: 0;
+            top: -2px;
         }
 
-        .highlight { 
-            color: var(--text-main); 
-            font-weight: 500; 
-            border-bottom: 1px solid var(--border-soft);
+        .timeline {
+            position: relative;
+            padding-left: 1.5rem;
+            border-left: 2px solid #cbd5e1;
         }
 
-        /* --- 期望職位區域 --- */
-        .target-career {
-            grid-column: 1 / -1;
-            background: var(--paper-bg);
-            border: 1px solid var(--border-soft);
-            padding: 40px;
-            margin-top: 40px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
         }
 
-        .target-title {
-            font-size: 0.9em;
-            color: var(--accent-gold);
-            margin-bottom: 25px;
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -2.05rem;
+            top: 0.2rem;
+            width: 1rem;
+            height: 1rem;
+            border-radius: 50%;
+            background: var(--primary-light);
+            border: 3px solid var(--white);
+        }
+
+        .timeline-date {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--accent);
             text-transform: uppercase;
-            letter-spacing: 3px;
-            text-align: center;
+            letter-spacing: 0.5px;
         }
 
-        .badge-container {
+        .timeline-title {
+            font-size: 1.2rem;
+            color: var(--dark);
+            margin: 0.2rem 0;
+        }
+
+        .timeline-company {
+            font-size: 0.95rem;
+            color: #64748b;
+            margin-bottom: 0.8rem;
+            font-weight: 500;
+        }
+
+        .timeline-desc {
+            font-size: 0.95rem;
+            color: var(--gray-dark);
+        }
+
+        .two-column-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .cert-item, .edu-item {
+            padding: 1rem;
+            border-left: 3px solid var(--accent);
+            background: var(--gray-light);
+            margin-bottom: 1rem;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .cert-title, .edu-title {
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .cert-issuer, .edu-school {
+            font-size: 0.9rem;
+            color: #64748b;
+        }
+
+        .lang-item {
+            margin-bottom: 1rem;
+        }
+
+        .lang-name {
             display: flex;
-            justify-content: center;
-            gap: 12px;
-            flex-wrap: wrap;
+            justify-content: space-between;
+            font-weight: 500;
+            margin-bottom: 0.3rem;
         }
 
-        .badge {
-            border: 1px solid var(--border-soft);
-            padding: 6px 18px;
-            font-size: 0.85em;
-            background: #fff;
-            color: var(--text-muted);
-            transition: all 0.3s;
+        .lang-bar {
+            height: 8px;
+            background: #e2e8f0;
+            border-radius: 4px;
+            overflow: hidden;
         }
 
-        .badge:hover {
-            border-color: var(--accent-gold);
-            color: var(--text-main);
+        .lang-progress {
+            height: 100%;
+            background: var(--primary-light);
+            border-radius: 4px;
+        }
+
+        .bio-section {
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        .bio-block {
+            background: var(--gray-light);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .bio-block h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
         }
 
         footer {
-            margin-top: 100px;
+            background: var(--dark);
+            color: #94a3b8;
             text-align: center;
-            color: var(--text-muted);
-            font-size: 0.75em;
-            letter-spacing: 1px;
-            padding-bottom: 50px;
+            padding: 2rem;
+            margin-top: 3rem;
+            font-size: 0.9rem;
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
-            .container { padding: 40px 20px; }
-            .name-ch { font-size: 1.8em; }
-            .grid-layout { grid-template-columns: 1fr; }
+            .hero-title { font-size: 2rem; }
+            .hero-subtitle { font-size: 1.1rem; }
+            .nav-menu { display: none; }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <header>
-            <div class="name-ch">Eri579 / 艾瑞克</div>
-            <div class="job-title">跨領域機械工程專家 | 多語技術顧問</div>
-        </header>
+    <!-- Header -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">ERIC <span>| PORTFOLIO</span></div>
+            <ul class="nav-menu">
+                <li><a href="#about" class="nav-link">關於我</a></li>
+                <li><a href="#skills" class="nav-link">專業技能</a></li>
+                <li><a href="#experience" class="nav-link">工作經歷</a></li>
+                <li><a href="#certs" class="nav-link">證照與學歷</a></li>
+                <li><a href="#autobio" class="nav-link">簡歷與規劃</a></li>
+            </ul>
+        </div>
+    </header>
 
-        <div class="quote-box">
-            <p>「非淡泊無以明志，非寧靜無以致遠。」 — 追求結構與邏輯的極致簡約。</p>
+    <!-- Hero Section -->
+    <section class="hero" id="about">
+        <div class="hero-container">
+            <h1 class="hero-title">Eric</h1>
+            <p class="hero-subtitle">日語商務溝通 × 自動化控制工程 × AI數據應用</p>
+            
+            <div class="hero-tags">
+                <span class="tag"><i class="fa-solid fa-language"></i> JLPT  高階日語</span>
+                <span class="tag"><i class="fa-solid fa-microchip"></i> 跨領域實務</span>
+                <span class="tag"><i class="fa-solid fa-robot"></i> iPAS AI應用規劃師</span>
+                <span class="tag"><i class="fa-solid fa-gears"></i> PLC / 機器人手臂編程</span>
+            </div>
+
+            <div class="hero-contact">
+                <div class="contact-item"><i class="fa-solid fa-location-dot"></i> 希望工作地：台中市 (日班/遠端)</div>
+                <div class="contact-item"><i class="fa-solid fa-calendar-check"></i> 可上班日：2026 / 09 / 01</div>
+                <div class="contact-item"><i class="fa-solid fa-id-card"></i> 駕照：小型車 / 重型機車</div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- Professional Skills -->
+        <section class="card" id="skills">
+            <h2 class="section-title"><i class="fa-solid fa-sliders"></i> 專業核心能力</h2>
+            <div class="skills-grid">
+                
+                <div class="skill-card">
+                    <h3><i class="fa-solid fa-robot"></i> 自動化與電控工程</h3>
+                    <ul class="skill-list">
+                        <li>PLC / HMI 控制系統編程與邏輯規劃</li>
+                        <li>FANUC / SYNTEC 六軸與門型機械手點位編程、校點與測試</li>
+                        <li>自動化設備導入、規畫、現行設備異常排除與維護改善</li>
+                        <li>治具繪圖設計、加工發包、組件安裝測試與整機 Repeat</li>
+                        <li>提升設備產能稼動率與生產效率</li>
+                    </ul>
+                </div>
+
+                <div class="skill-card">
+                    <h3><i class="fa-solid fa-globe"></i> 日文業務</h3>
+                    <ul class="skill-list">
+                        <li>日本向業務：案件推進、基礎報價、客戶接待與專案協調</li>
+                        <li>技術型業務支援：機械設備規格檢討、客訴處理與出展</li>
+                        <li>日系客製機專案（愛信、愛汽、TOYOTA 等設備對應）</li>
+                        <li>日文技術文件翻譯、會議與談判即時口譯</li>
+                        <li>廠內跨部門與廠外跨國供應鏈溝通協調</li>
+                    </ul>
+                </div>
+
+                <div class="skill-card">
+                    <h3><i class="fa-solid fa-brain"></i> AI 應用與數據分析</h3>
+                    <ul class="skill-list">
+                        <li>iPAS AI應用規劃師認證 (初級)</li>
+                        <li>Python 人工智慧與數據分析實務操作</li>
+                        <li>網絡資料爬取 (Web Scraping) 與資料清洗 (Data Cleaning)</li>
+                        <li>MS SQL Server 資料庫架構與數據上傳</li>
+                        <li>Power BI 數據可視化圖表呈現與決策支援</li>
+                        <li>氛圍編程 (Vibe Coding) 靈活應用</li>
+                    </ul>
+                </div>
+
+                <div class="skill-card">
+                    <h3><i class="fa-solid fa-drafting-compass"></i> 軟體工具與設備操作</h3>
+                    <ul class="skill-list">
+                        <li>CAD/CAM 設計：SolidWorks (零件設計)、CATIA</li>
+                        <li>辦公軟體：Excel, Word, PowerPoint</li>
+                        <li>專業機具證照：堆高機操作技術士證照</li>
+                        <li>重機械操作 / 修護技術實務</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Work Experience -->
+        <section class="card" id="experience">
+            <h2 class="section-title"><i class="fa-solid fa-briefcase"></i> 工作經歷 (總年資 13~14 年)</h2>
+            <div class="timeline">
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">2021/08 – 2025/09 (4年2個月)</div>
+                    <h3 class="timeline-title">生產自動化工程師</h3>
+                    <div class="timeline-company">新廣業股份有限公司 (塑膠製品製造業 | 100~500人)</div>
+                    <div class="timeline-desc">
+                        1. 自動化設備導入、現行設備異常排除協助。<br>
+                        2. 委外自動化設備規格檢討、設備採購與合約制定。<br>
+                        3. 機台治具設計繪圖、加工委外發包、組件安裝測試。<br>
+                        4. 廠內簡易設備整機 REPEAT (含機構、控制)，包含物料自行繪製、採購、外包加工、組裝及測試。
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">2015/04 – 2021/05 (6年2個月)</div>
+                    <h3 class="timeline-title">自動控制工程師 / 電控開發 / 國外業務</h3>
+                    <div class="timeline-company">程泰機械股份有限公司 (金屬加工用機械製造修配業 | 100~500人)</div>
+                    <div class="timeline-desc">
+                        <strong>1. 日本業務人員：</strong> 廠內外溝通協調、日系客製機專案推進（TOYOTA、愛信、愛汽等）、客訴處理、國內外出展。<br>
+                        <strong>2. 電控開發工程師：</strong> (FANUC) 機台調機、PLC 維護及客製修改、客訴問題處理。<br>
+                        <strong>3. 自動化控制工程師：</strong> 搭機台之自動化設備開發，FANUC 及 SYNTEC 六軸與門型機械手程式編程、校點與測試。<br>
+                        <em>※ 電控相關工作皆為軟體編寫，分工明確專注於程式與控制。</em>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">2013/04 – 2014/04 (1年1個月)</div>
+                    <h3 class="timeline-title">國外業務人員 (日本線)</h3>
+                    <div class="timeline-company">銀泰科技股份有限公司 (金屬相關製造業 | 500人以上)</div>
+                    <div class="timeline-desc">
+                        負責日本向業務開發與客戶對應、廠內外專案溝通協調、基礎報價、往來信件翻譯、生產進度跟催及客訴處理解決。
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">2010/06 – 2011/08 (1年3個月)</div>
+                    <h3 class="timeline-title">生管 / 新製品推進</h3>
+                    <div class="timeline-company">台灣佳能股份有限公司 (光學器材製造業 | 500人以上)</div>
+                    <div class="timeline-desc">
+                        擔任日商企業台日溝通窗口，負責新製品導入流程推進與生產進度追蹤管理。
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">2008/04 – 2008/11 (8個月)</div>
+                    <h3 class="timeline-title">品保工程師 (LEADER) / 客服工程師</h3>
+                    <div class="timeline-company">台灣日東光學股份有限公司 (光電產業 | 500人以上)</div>
+                    <div class="timeline-desc">
+                        負責品質保證團隊帶領、客訴問題回饋與品質改善對應。
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Education & Certifications -->
+        <div class="two-column-grid">
+            
+            <section class="card" id="certs">
+                <h2 class="section-title"><i class="fa-solid fa-award"></i> 專業認證與語言</h2>
+                
+                <h3 style="margin-bottom: 1rem; color: var(--dark); font-size: 1.1rem;">語言能力</h3>
+                
+                <div class="lang-item">
+                    <div class="lang-name"><span>日文 (JLPT N1 最高級)</span><span>聽/說/讀/寫 中等</span></div>
+                    <div class="lang-bar"><div class="lang-progress" style="width: 90%;"></div></div>
+                </div>
+                
+                <div class="lang-item">
+                    <div class="lang-name"><span>中文</span><span>精通 (母語)</span></div>
+                    <div class="lang-bar"><div class="lang-progress" style="width: 100%;"></div></div>
+                </div>
+
+                <div class="lang-item">
+                    <div class="lang-name"><span>台語</span><span>精通</span></div>
+                    <div class="lang-bar"><div class="lang-progress" style="width: 100%;"></div></div>
+                </div>
+
+                <div class="lang-item">
+                    <div class="lang-name"><span>英文 (TOEIC 500)</span><span>基礎閱讀溝通</span></div>
+                    <div class="lang-bar"><div class="lang-progress" style="width: 50%;"></div></div>
+                </div>
+
+                <h3 style="margin: 1.5rem 0 1rem; color: var(--dark); font-size: 1.1rem;">專業資格證照</h3>
+                
+                <div class="cert-item">
+                    <div class="cert-title">iPAS+ AI應用規劃師能力鑑定 (初級)</div>
+                    <div class="cert-issuer">經濟部產業人才能力鑑定 | 2026/07 取得</div>
+                </div>
+
+                <div class="cert-item">
+                    <div class="cert-title">JLPT 日語能力認定 1級 (N1)</div>
+                    <div class="cert-issuer">獨立行政法人國際交流基金 | 2011/08 取得</div>
+                </div>
+
+                <div class="cert-item">
+                    <div class="cert-title">Python 人工智慧與數據分析班結訓證明</div>
+                    <div class="cert-issuer">巨匠電腦 | 2026/04 取得</div>
+                </div>
+
+                <div class="cert-item">
+                    <div class="cert-title">CAD/CAM (CATIA) 專業技術研習證明</div>
+                    <div class="cert-issuer">國立秀水高工 | 2006/02 取得</div>
+                </div>
+
+                <div class="cert-item">
+                    <div class="cert-title">堆高機操作技術士 / 重機械操作證照</div>
+                    <div class="cert-issuer">中國勞工安全衛生管理學會</div>
+                </div>
+            </section>
+
+            <section class="card">
+                <h2 class="section-title"><i class="fa-solid fa-graduation-cap"></i> 學歷背景</h2>
+                
+                <div class="edu-item">
+                    <div class="edu-title">南台科技大學</div>
+                    <div class="edu-school">日文系 | 大學畢業 (2002/09 – 2006/06)</div>
+                </div>
+
+                <div class="edu-item">
+                    <div class="edu-title">PACIFIC GATEWAY INTERNATIONAL COLLEGE (加拿大)</div>
+                    <div class="edu-school">ESL 語言研習 (2009/04 – 2009/10)</div>
+                </div>
+
+                <div class="edu-item">
+                    <div class="edu-title">GLOBAL VILLAGE ENGLISH CENTRES (加拿大)</div>
+                    <div class="edu-school">ESL 語言研習 (2009/10 – 2010/02)</div>
+                </div>
+
+                <div style="margin-top: 2rem; padding: 1rem; background: #eff6ff; border-radius: 8px;">
+                    <h4 style="color: var(--primary); margin-bottom: 0.5rem;"><i class="fa-solid fa-compass"></i> 希望求職條件</h4>
+                    <p style="font-size: 0.9rem; line-height: 1.6;">
+                        <strong>希望職稱：</strong>日文業務人員 / 業務工程師 / 自動化控制工程師 / 專案主管<br>
+                        <strong>希望產業：</strong>精密儀器製造、金屬相關製造、汽車零件製造、自動控制業<br>
+                        <strong>工作形式：</strong>日班 / 支持遠端工作<br>
+                        <strong>希望待遇：</strong>面議
+                    </p>
+                </div>
+            </section>
+
         </div>
 
-        <div class="grid-layout">
+        <!-- Autobiography -->
+        <section class="card" id="autobio">
+            <h2 class="section-title"><i class="fa-solid fa-file-lines"></i> 自傳與生涯規劃</h2>
+            
+            <div class="bio-section">
+                <div class="bio-block">
+                    <h4><i class="fa-solid fa-user-check"></i> 中文自傳</h4>
+                    <p>
+                        大學畢業後任職於日商（日東光學、台灣佳能），主要擔任台日對應窗口，使日文能力奠定紮實基礎。後續於銀泰科技擔任日本線業務，正式進入機械相關產業。
+                    </p>
+                    <p style="margin-top: 0.5rem;">
+                        在程泰機械任職期間，迎接職務的重要轉折：初期擔任日本線業務，隨後跨足電控開發，再轉任至自動化部門。於新廣業醫材自動化控制課服務時，負責自動化設備導入、簡易檢測設備 REPEAT 及跨部門技術協助。透過「語言能力 × 電控技術 × 自動化導入」的跨領域融合，能同時扮演技術解方提供者與高階溝通橋樑。
+                    </p>
+                </div>
 
-            <div class="card">
-                <span class="card-tag">Engineering Design</span>
-                <h2 class="card-title">3D 機械設計與建模</h2>
-                <ul class="skill-list">
-                    <li><span class="highlight">CATIA V5 / SolidWorks</span> 熟練應用</li>
-                    <li>大型組合件與精密零件設計</li>
-                    <li>造型曲面與 <span class="highlight">逆向工程</span></li>
-                    <li>3D 列印製程優化 (FDM / SLA)</li>
-                </ul>
-            </div>
+                <div class="bio-block">
+                    <h4><i class="fa-solid fa-bullseye"></i> 生涯規劃</h4>
+                    <p>
+                        不斷充實自我才能因應工作上的難題。接觸機械產業後，深知自動化與智慧化勢必為未來發展核心。我跳脫純粹日文業務的框架，實際接觸機台控制與自動化整合，並進一步學習 Python AI 數據分析與 iPAS AI 應用規劃。未來將持續結合日文跨國業務能力與自動化 AI 技術，為企業創造多維度的價值。
+                    </p>
+                </div>
 
-            <div class="card">
-                <span class="card-tag">Systems & Control</span>
-                <h2 class="card-title">自動化控制編程</h2>
-                <ul class="skill-list">
-                    <li><span class="highlight">六軸機械手</span> 運動路徑開發</li>
-                    <li>PLC / MCU 邏輯整合</li>
-                    <li>HMI 人機介面優化設計</li>
-                </ul>
-            </div>
-
-            <div class="card">
-                <span class="card-tag">Intelligence</span>
-                <h2 class="card-title">資料科學與視覺化</h2>
-                <ul class="skill-list">
-                    <li>SQL Server 資料庫設計</li>
-                    <li><span class="highlight">Python</span> 數據自動化處理</li>
-                    <li>Power BI 商業決策報表</li>
-                </ul>
-            </div>
-
-            <div class="card">
-                <span class="card-tag">Communication</span>
-                <h2 class="card-title">專業日文技術諮詢</h2>
-                <ul class="skill-list">
-                    <li>工具機與機械專業領域對譯</li>
-                    <li>技術手冊及專利文件翻譯</li>
-                    <li><span class="highlight">台日技術交流</span> 現場口譯</li>
-                </ul>
-            </div>
-
-            <div class="target-career">
-                <h3 class="target-title">Target Career</h3>
-                <div class="badge-container">
-                    <span class="badge">日文業務工程師</span>
-                    <span class="badge">機械設計開發工程師</span>
-                    <span class="badge">自動化系統整合顧問</span>
-                    <span class="badge">技術資料分析師</span>
+                <div class="bio-block" style="border-left: 4px solid var(--primary-light);">
+                    <h4><i class="fa-solid fa-language"></i> 職務経歴 (日本語)</h4>
+                    <p>
+                        大学卒業後、日系メーカー（日東光学、台湾キヤノン）にて日台の窓口として日本語能力を鍛え上げました。その後、銀泰科技の日本向け営業を経て機械業界に携わりました。程泰機械では元々日本向け営業員を務めておりましたが、電装開発部へ転換し、さらに自動化部へ配属。新広業オートメーション制御課においては、自動化設備の導入、簡易検査装置のリピート設計・立ち上げ、および他部門への技術サポートを主導してまいりました。
+                    </p>
+                    <p style="margin-top: 0.5rem;">
+                        <strong>キャリアプラン：</strong><br>
+                        自動化とAI技術は今後の重要トレンドです。営業の枠を超え、実機と自動化設備に直接触れながらスキルを磨いてまいりました。今後は「日本語商談力×自動化制御×データ分析」を軸に、より一層の成長と貢献を目指します。
+                    </p>
                 </div>
             </div>
-
-        </div>
-
-        <footer>
-            <p>&copy; 2026 Eri579. ENGINEERING PORTFOLIO. VERSION 2.0</p>
-        </footer>
+        </section>
     </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Eric - Professional Portfolio | Powered by GitHub Pages</p>
+    </footer>
 
 </body>
 </html>
